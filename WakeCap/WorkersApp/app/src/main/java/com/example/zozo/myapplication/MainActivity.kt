@@ -1,11 +1,14 @@
 package com.example.zozo.myapplication
 
+import android.content.Intent
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
 import android.util.Log
 import android.support.design.widget.Snackbar
+import android.view.View
+import android.widget.ProgressBar
 import com.android.volley.AuthFailureError
 import com.android.volley.Request
 import com.android.volley.Response
@@ -20,6 +23,7 @@ import org.json.JSONException
 class MainActivity : AppCompatActivity() {
     //Views
     private lateinit var recyclerView: RecyclerView
+    private lateinit var PB:ProgressBar
     //Data
     private lateinit var data:ArrayList<Workers>
     private lateinit var viewAdapter: RecyclerView.Adapter<*>
@@ -38,6 +42,7 @@ class MainActivity : AppCompatActivity() {
         var myDataset: Array<String> = arrayOf("dan", "anca", "fff", "sdsdsd", "sdsd" , "sdsd" , "sdsd" , "sdsd" , "sdsd" , "sdsd" , "sdsd" )
         data= arrayListOf()
         viewManager = LinearLayoutManager(this)
+        PB=findViewById(R.id.workerListPB)
        /* viewAdapter = WorkersAdapter(myDataset,this)
 
         recyclerView = findViewById<RecyclerView>(R.id.workerList).apply {
@@ -54,11 +59,9 @@ class MainActivity : AppCompatActivity() {
     }
     fun getData()
     {
-
-
         val queue = Volley.newRequestQueue(this)
         val jsonObjReq = object : JsonObjectRequest(
-            Method.GET, url, null,
+            Method.GET, getString(R.string.url), null,
             Response.Listener<JSONObject> { response ->
                 Log.v("result", "Response: %s".format(response.toString()))
                 // Process the JSON
@@ -83,6 +86,7 @@ class MainActivity : AppCompatActivity() {
                         // specify an viewAdapter (see also next example)
                         adapter = viewAdapter
                     }
+                    PB.setVisibility(View.GONE)
                 } catch (e: JSONException) {
                     e.printStackTrace()
                 }
@@ -91,10 +95,12 @@ class MainActivity : AppCompatActivity() {
             Response.ErrorListener { error ->
                 //textView.text="error"
                 Log.v("result", "error")
-               /* Snackbar.make(recyclerView,
+               Snackbar.make(PB,
                     getString(R.string.server_error),
                     Snackbar.LENGTH_LONG
-                ).show();*/
+                ).show();
+                PB.setVisibility(View.GONE)
+
             }) {
             @Throws(AuthFailureError::class)
             override fun getHeaders(): Map<String, String> {
@@ -106,5 +112,10 @@ class MainActivity : AppCompatActivity() {
             }
         }
         queue.add(jsonObjReq)
+    }
+    public fun openRoleSections(view:View)
+    {
+        val intent = Intent(this,RolesSect::class.java)
+        startActivity(intent)
     }
 }
