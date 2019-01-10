@@ -5,10 +5,9 @@ import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
 import kotlinx.android.synthetic.main.custom_item.view.*
 
-class WorkersAdapter(val items : Array<String> ,
+class WorkersAdapter(val items : ArrayList<Workers> ,
 val context: Context): RecyclerView.Adapter<ViewHolder>() {
 
 
@@ -24,11 +23,17 @@ val context: Context): RecyclerView.Adapter<ViewHolder>() {
 
     // Binds each animal in the ArrayList to a view
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        holder?.tvAnimalType?.text = items.get(position)
+        holder?.nameText?.text = items.get(position).name
+        holder?.roleText?.text = items.get(position).role
+        holder?.contractorText?.text = items.get(position).contractor
+
     }
 
 }
 class ViewHolder (view: View) : RecyclerView.ViewHolder(view) {
     // Holds the TextView that will add each animal to
-    val tvAnimalType = view.tv_animal_type
+    val nameText = view.nameTV
+    val roleText = view.roleTV
+    val contractorText = view.contractorTV
+
 }
