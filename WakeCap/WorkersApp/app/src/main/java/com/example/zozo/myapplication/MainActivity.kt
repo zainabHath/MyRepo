@@ -10,10 +10,11 @@ import android.support.design.widget.Snackbar
 import android.view.View
 import android.widget.ProgressBar
 import com.android.volley.AuthFailureError
-import com.android.volley.Request
 import com.android.volley.Response
 import com.android.volley.toolbox.JsonObjectRequest
 import com.android.volley.toolbox.Volley
+import com.example.zozo.myapplication.Adapters.WorkersAdapter
+import com.example.zozo.myapplication.DataModel.Workers
 import org.json.JSONArray
 import org.json.JSONObject
 import org.json.JSONException
@@ -26,10 +27,8 @@ class MainActivity : AppCompatActivity() {
     private lateinit var PB:ProgressBar
     //Data
     private lateinit var data:ArrayList<Workers>
-    private lateinit var viewAdapter: RecyclerView.Adapter<*>
-    private lateinit var viewManager: RecyclerView.LayoutManager
-    //WS
-    val url = "https://pilot.wakecap.com/api/sites/10010001/workers"
+    private lateinit var recycleViewAdapter: RecyclerView.Adapter<*>
+    private lateinit var recycleViewManager: RecyclerView.LayoutManager
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -39,23 +38,14 @@ class MainActivity : AppCompatActivity() {
         }
     fun init()
     {
-        var myDataset: Array<String> = arrayOf("dan", "anca", "fff", "sdsdsd", "sdsd" , "sdsd" , "sdsd" , "sdsd" , "sdsd" , "sdsd" , "sdsd" )
         data= arrayListOf()
-        viewManager = LinearLayoutManager(this)
+        recycleViewManager = LinearLayoutManager(this)
         PB=findViewById(R.id.workerListPB)
-       /* viewAdapter = WorkersAdapter(myDataset,this)
-
-        recyclerView = findViewById<RecyclerView>(R.id.workerList).apply {
-            // use this setting to improve performance if you know that changes
-            // in content do not change the layout size of the RecyclerView
-            setHasFixedSize(true)
-
-            // use a linear layout manager
-            layoutManager = viewManager
-
-            // specify an viewAdapter (see also next example)
-            adapter = viewAdapter
-        }*/
+    }
+    public fun openRoleSections(view:View)
+    {
+        val intent = Intent(this,RolesSect::class.java)
+        startActivity(intent)
     }
     fun getData()
     {
@@ -69,22 +59,19 @@ class MainActivity : AppCompatActivity() {
                     val jsonArray:JSONArray = response.getJSONObject("data").getJSONArray("items")
                     // Loop through the array elements
                     for (i in 0 until jsonArray.length()) {
-                         var jObject:JSONObject=jsonArray.getJSONObject(i).getJSONObject("attributes");
-                        data.add(Workers(jObject.getString("full_name"),jObject.getString("role")
-                            ,jObject.getString("contractor"),jObject.getString("updated_at")))
+                        var jObject:JSONObject=jsonArray.getJSONObject(i).getJSONObject("attributes");
+                        data.add(
+                            Workers(
+                                jObject.getString("full_name"), jObject.getString("role")
+                                , jObject.getString("contractor"), jObject.getString("updated_at")
+                            )
+                        )
                     }
-                    viewAdapter = WorkersAdapter(data,this)
+                    recycleViewAdapter = WorkersAdapter(data, this)
 
                     recyclerView = findViewById<RecyclerView>(R.id.workerList).apply {
-                        // use this setting to improve performance if you know that changes
-                        // in content do not change the layout size of the RecyclerView
-                        setHasFixedSize(true)
-
-                        // use a linear layout manager
-                        layoutManager = viewManager
-
-                        // specify an viewAdapter (see also next example)
-                        adapter = viewAdapter
+                        layoutManager = recycleViewManager
+                        adapter = recycleViewAdapter
                     }
                     PB.setVisibility(View.GONE)
                 } catch (e: JSONException) {
@@ -93,9 +80,8 @@ class MainActivity : AppCompatActivity() {
 
             },
             Response.ErrorListener { error ->
-                //textView.text="error"
                 Log.v("result", "error")
-               Snackbar.make(PB,
+                Snackbar.make(PB,
                     getString(R.string.server_error),
                     Snackbar.LENGTH_LONG
                 ).show();
@@ -112,10 +98,5 @@ class MainActivity : AppCompatActivity() {
             }
         }
         queue.add(jsonObjReq)
-    }
-    public fun openRoleSections(view:View)
-    {
-        val intent = Intent(this,RolesSect::class.java)
-        startActivity(intent)
     }
 }

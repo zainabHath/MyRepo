@@ -1,4 +1,4 @@
-package com.example.zozo.myapplication;
+package com.example.zozo.myapplication.DataModel;
 
 public class Postion {
     public int keyPos;
