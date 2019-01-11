@@ -9,9 +9,12 @@ import kotlinx.android.synthetic.main.custom_item.view.*
 
 class WorkersAdapter(val items : ArrayList<Workers> ,
 val context: Context): RecyclerView.Adapter<ViewHolder>() {
+    var type:Boolean = false
+     public fun WorkersAdapter(context: Context,roles:Map<String,ArrayList<String>>,size:Int)
+    {
+        type=true
 
-
-    // Gets the number of animals in the list
+    }
     override fun getItemCount(): Int {
         return items.size
     }
@@ -21,18 +24,15 @@ val context: Context): RecyclerView.Adapter<ViewHolder>() {
         return ViewHolder(LayoutInflater.from(context).inflate(R.layout.custom_item,null, false))
     }
 
-    // Binds each animal in the ArrayList to a view
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         holder?.nameText?.text = items.get(position).name
         holder?.roleText?.text = items.get(position).role
         holder?.contractorText?.text = items.get(position).contractor
-
     }
 
 }
 class ViewHolder (view: View) : RecyclerView.ViewHolder(view) {
-    // Holds the TextView that will add each animal to
-    val nameText = view.nameTV
+    val nameText = view.nameSectionTV
     val roleText = view.roleTV
     val contractorText = view.contractorTV
 

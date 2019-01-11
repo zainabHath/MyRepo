@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                                             xmlns:app="http://schemas.android.com/apk/res-auto"
+                                             xmlns:tools="http://schemas.android.com/tools"
+                                             android:layout_width="match_parent"
+                                             android:layout_height="wrap_content">
+    <android.support.constraint.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginStart="8dp"
+            app:layout_constraintEnd_toEndOf="parent" android:layout_marginEnd="8dp"
+            android:background="@color/primary_light" android:id="@+id/dataArea"
+            app:layout_constraintBottom_toBottomOf="parent">
+
+        <TextView
+                android:text="name1 name 2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/nameSectionTV" android:layout_marginTop="8dp"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintEnd_toEndOf="parent" android:layout_marginEnd="8dp"
+                android:textColor="@color/primary_text" android:textSize="16sp" android:layout_marginStart="8dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintHorizontal_bias="0.032" android:layout_marginBottom="8dp"
+                app:layout_constraintBottom_toBottomOf="parent"/>
+        <ImageView
+                android:layout_width="60dp"
+                android:layout_height="60dp" app:srcCompat="@drawable/workerav"
+                android:id="@+id/imageView2" android:layout_marginTop="8dp"
+                app:layout_constraintTop_toTopOf="parent" app:layout_constraintBottom_toBottomOf="parent"
+                android:layout_marginBottom="8dp"
+                app:layout_constraintVertical_bias="0.101"
+                android:layout_marginEnd="16dp" app:layout_constraintEnd_toEndOf="parent"
+        />
+    </android.support.constraint.ConstraintLayout>
+    <TextView
+            android:text="TextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" android:id="@+id/sectionTitleTV"
+            android:textColor="@color/primary_text"
+            android:textSize="18sp" android:textStyle="bold"
+            android:layout_marginBottom="8dp" app:layout_constraintBottom_toTopOf="@+id/dataArea"
+            android:layout_marginEnd="8dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" android:layout_marginStart="8dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintVertical_bias="1.0" android:layout_marginTop="8dp"/>
+</android.support.constraint.ConstraintLayout>

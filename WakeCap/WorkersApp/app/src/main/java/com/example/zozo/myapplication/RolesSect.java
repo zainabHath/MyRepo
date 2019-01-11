@@ -3,6 +3,8 @@ package com.example.zozo.myapplication;
 import android.os.AsyncTask;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.View;
 import android.widget.ProgressBar;
@@ -26,6 +28,9 @@ import java.util.stream.Collectors;
 public class RolesSect extends AppCompatActivity {
     //Views
     ProgressBar PB;
+    RecyclerView workersInSectionList;
+     RecyclerView.LayoutManager layoutManager;
+
     //data
     ArrayList<Workers> workersData;
     @Override
@@ -34,14 +39,20 @@ public class RolesSect extends AppCompatActivity {
         setContentView(R.layout.activity_roles_sect);
         init();
         getData();
-        invitedTask invitedtask = new invitedTask();
-        invitedtask.execute();
-
     }
     void init()
     {
         PB=findViewById(R.id.roleSecPB);
         workersData=new ArrayList<>();
+        workersInSectionList=findViewById(R.id.roleSecList);
+
+        // use this setting to improve performance if you know that changes
+        // in content do not change the layout size of the RecyclerView
+        workersInSectionList.setHasFixedSize(true);
+
+        // use a linear layout manager
+        layoutManager = new LinearLayoutManager(this);
+        workersInSectionList.setLayoutManager(layoutManager);
     }
     void getData()
     {
@@ -55,7 +66,7 @@ public class RolesSect extends AppCompatActivity {
                         try{
 
                             JSONArray jsonArray = response.getJSONObject("data").getJSONArray("items");
-                            Map <String, ArrayList<String>> rolesArray=new HashMap<>();
+                            HashMap <String, ArrayList<String>> rolesArray=new HashMap<>();
                             // Loop through the array elements
                             for (int i=0;i<jsonArray.length();i++)
                             {
@@ -76,10 +87,12 @@ public class RolesSect extends AppCompatActivity {
                                     rolesArray.put(jObject.getString("role"),names);
                                 }
                             }
+                            WorkersSectionAdapter adapter=new WorkersSectionAdapter(workersData.size(),rolesArray);
+                            workersInSectionList.setAdapter(adapter);
                             Log.v("volleyR1",rolesArray.size()+"");
                             Log.v("volleyR2",rolesArray.get("Engineer").size()+"");
-                          //  Log.v("volleyR3",rolesArray.size()+"");
-
+                            Log.v("volleyR3",workersData.get(0).getName());
+                            PB.setVisibility(View.GONE);
                         }
                         catch(JSONException e)
                         {
@@ -162,58 +175,6 @@ public class RolesSect extends AppCompatActivity {
         queue.add(jsonObjReq)*/
     }
 
-    class invitedTask extends AsyncTask<String, Void, String> {
-        String result = "";
-        @Override
-        protected String doInBackground(String... params) {
-
-            try {
-                URL url = new URL(getString(R.string.url));
-                HttpURLConnection urlConnection = (HttpURLConnection) url.openConnection();
-                urlConnection.setRequestMethod("POST");
-                urlConnection.setDoInput(true);
-                urlConnection.setRequestProperty("Authorization", getString(R.string.auth_token));
-                urlConnection.setRequestProperty("Content-Type", "application/json");
-                urlConnection.setRequestProperty("X-Requested-With", "XMLHttpRequest");
-                BufferedReader in = new BufferedReader(new InputStreamReader(urlConnection.getInputStream(), "UTF-8"));
-                String line;
-                StringBuilder total = new StringBuilder();
-                while ((line = in.readLine()) != null)
-                    total.append(line).append('\n');
-
-                result = total.toString();
-                // Log.i("ouput", result);
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-            // selector query
-
-
-            // return
-            return result;
-        }
-
-        protected void onPostExecute(String data) {
-              Log.v("nativeR", result);
-              PB.setVisibility(View.GONE);
-            try{
-
-                    JSONArray jsonArray = new JSONObject(data).getJSONObject("data").getJSONArray("items");
-                    // Loop through the array elements
-                for (int i=0;i<jsonArray.length();i++)
-                {
-                    JSONObject jObject=jsonArray.getJSONObject(i).getJSONObject("attributes");
-                    workersData.add(new Workers(jObject.getString("full_name"),jObject.getString("role")
-                            ,jObject.getString("contractor"),jObject.getString("updated_at")));
-                }
-
-            }
-            catch(JSONException e)
-            {
-                e.printStackTrace();
-            }
-        }
-    }
 
 
 }
