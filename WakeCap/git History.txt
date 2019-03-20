@@ -1,0 +1,59 @@
+commit e2fe97074e1e308fc19d210743fab6dd405ac135 (HEAD -> master, origin/master)
+Author: zainabhath <zainb-hathloul@hotmail.com>
+Date:   Fri Jan 11 15:40:13 2019 +0300
+
+    clean code + edit some ui design
+
+commit 913e37ddd9ad7babc60d79e5b32a2582b270257d
+Author: zainabhath <zainb-hathloul@hotmail.com>
+Date:   Fri Jan 11 13:59:48 2019 +0300
+
+    role sections ui + link data to ui
+
+commit 9ddc35fc3680e44b8b0adf73b69ad11da45fd9bc
+Author: zainabhath <zainb-hathloul@hotmail.com>
+Date:   Thu Jan 10 21:12:12 2019 +0300
+
+    bind workers data to ui + grouping data for role sections
+
+commit 19c4ca38c6f11ddc69e8cae5b1d492a79cb74aa4
+Author: zainabhath <zainb-hathloul@hotmail.com>
+Date:   Thu Jan 10 16:39:59 2019 +0300
+
+    connect to WS and get Data for workers list
+
+commit af5a50954a6032ea3d8ffb6d1193583f5d04acc3
+Author: zainabhath <zainb-hathloul@hotmail.com>
+Date:   Thu Jan 10 13:53:23 2019 +0300
+
+    worker app + worker list ui
+:...skipping...
+commit e2fe97074e1e308fc19d210743fab6dd405ac135 (HEAD -> master, origin/master)
+Author: zainabhath <zainb-hathloul@hotmail.com>
+Date:   Fri Jan 11 15:40:13 2019 +0300
+
+    clean code + edit some ui design
+
+commit 913e37ddd9ad7babc60d79e5b32a2582b270257d
+Author: zainabhath <zainb-hathloul@hotmail.com>
+Date:   Fri Jan 11 13:59:48 2019 +0300
+
+    role sections ui + link data to ui
+
+commit 9ddc35fc3680e44b8b0adf73b69ad11da45fd9bc
+Author: zainabhath <zainb-hathloul@hotmail.com>
+Date:   Thu Jan 10 21:12:12 2019 +0300
+
+    bind workers data to ui + grouping data for role sections
+
+commit 19c4ca38c6f11ddc69e8cae5b1d492a79cb74aa4
+Author: zainabhath <zainb-hathloul@hotmail.com>
+Date:   Thu Jan 10 16:39:59 2019 +0300
+
+    connect to WS and get Data for workers list
+
+commit af5a50954a6032ea3d8ffb6d1193583f5d04acc3
+Author: zainabhath <zainb-hathloul@hotmail.com>
+Date:   Thu Jan 10 13:53:23 2019 +0300
+
+    worker app + worker list ui
