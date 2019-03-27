@@ -1,20 +1,14 @@
-# Memory Game Project
+# Memory Game 
+this game edited by me to add some action the orginal version was the starter project from udacity you can find it here: https://github.com/udacity/fend-project-memory-game 
 
-## Table of Contents
-
-* [Instructions](#instructions)
-* [Contributing](#contributing)
 
 ## Instructions
 
-The starter project has some HTML and CSS styling to display a static version of the Memory Game project. You'll need to convert this project from a static project to an interactive one. This will require modifying the HTML and CSS files, but primarily the JavaScript file.
+* most changes accur on `js/app.js`.
+* some changes to html and css file ,but it is not that much.
+* js code has clear comment to the secinaro of the game actions.
 
-To get started, open `js/app.js` and start building out the app's functionality
 
-For specific, detailed instructions, look at the project instructions in the [Udacity Classroom](https://classroom.udacity.com/me).
+## try me
 
-## Contributing
-
-This repository is the starter code for _all_ Udacity students. Therefore, we most likely will not accept pull requests.
-
-For details, check out [CONTRIBUTING.md](CONTRIBUTING.md).
+please try my game first :) 
