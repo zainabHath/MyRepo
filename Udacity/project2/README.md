@@ -11,4 +11,4 @@ this game edited by me to add some actions to the original version which was the
 
 ## try me
 
-please try the game first :) 
+please try the game first :) https://zainabhath.github.io/MyRepo/Udacity/project2/
