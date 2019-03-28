@@ -26,6 +26,7 @@ body {
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    margin: auto;
 }
 
 h1 {
@@ -38,8 +39,10 @@ h1 {
  */
 
 .deck {
-    width: 660px;
-    min-height: 680px;
+     /* width: 660px;
+     min-height: 680px; */
+    width: 80%;
+    min-height: 80%;
     background: linear-gradient(160deg, #02ccba 0%, #aa7ecd 100%);
     padding: 32px;
     border-radius: 10px;
@@ -48,12 +51,15 @@ h1 {
     flex-wrap: wrap;
     justify-content: space-between;
     align-items: center;
-    margin: 0 0 3em;
+    /* margin: auto; */
+     margin: 0 0 3em;
 }
 
 .deck .card {
-    height: 125px;
-    width: 125px;
+    /* height: 125px;
+    width: 125px; */
+    width: 14vw;
+    height: 14vw;
     background: #2e3d49;
     font-size: 0;
     color: #ffffff;
@@ -63,6 +69,7 @@ h1 {
     justify-content: center;
     align-items: center;
     box-shadow: 5px 2px 20px 0 rgba(46, 61, 73, 0.5);
+     margin: 10px;
 }
 
 .deck .card.open {
@@ -87,7 +94,7 @@ h1 {
 
 .score-panel {
     text-align: left;
-    width: 345px;
+    width: 40%;
     margin-bottom: 10px;
 }
 
@@ -112,8 +119,9 @@ h1 {
 }
 .winner-box{
   position: absolute;
-  width: 400px;
-  height: 350px;
+  /* width: 400px;
+  height: 350px; */
+  width: 50%;
   display: none;
   flex-direction: column;
   margin: auto;
@@ -153,4 +161,66 @@ h1 {
   cursor: pointer;
   margin: auto;
   border-radius: 10px;
+}
+/* Break points */
+@media screen and (min-width: 800px) {
+  .deck {
+       width: 660px;
+       min-height: 680px; }
+  .deck .card {
+           height: 125px;
+           width: 125px;}
+  .score-panel {
+            width: 345px;}
+  .winner-box{
+            width: 400px;
+            height: 350px;}
+}
+@media screen and (max-width: 600px) {
+   .deck .card {
+           height: 13vw;
+           width: 13vw;
+           margin: 6px;}
+  .deck .card.show {
+               font-size: 18px;}
+  .deck .card.match {
+               font-size: 18px;}
+  .congrats-title {
+    font-size: 20px;
+  }
+  .user-time{
+    font-size: 12px;
+  }
+  .button-style{
+    font-size: 12px;
+  }
+  .winner-icon{
+    width: 20%;
+  }
+}
+@media screen and (max-width: 400px) {
+  .deck .card {
+           height: 12vw;
+           width: 12vw;
+           margin: 4px;}
+  .deck .card.show {
+          font-size: 14px;}
+  .deck .card.match {
+          font-size: 14px;}
+  .winner-box{
+          padding: 3px;
+  }
+  .congrats-title {
+          font-size: 14px;
+          }
+  .user-time{
+          font-size: 10px;
+          }
+  .button-style{
+          font-size: 10px;
+          padding: 10px;
+          }
+  .winner-icon{
+          width: 18%;
+          }
 }

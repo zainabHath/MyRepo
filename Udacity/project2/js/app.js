@@ -1,3 +1,4 @@
+'use strict';
 /*
  * Create a list that holds all of your cards
  */
@@ -39,9 +40,14 @@ let matchCounter=0;
 let userTime;
 let gameoverTimer;
 let gameOverFLag=false;
-let ratingMs="3.0";
+let ratingMsg="3.0";
 //
 function checkCard(card){
+  //check if it first move to start the startTimer
+  if (moveCounter==0) {
+    startTimer();
+    gameOverCountDown();
+  }
   //save first card
   if (card1==null) {
     moveCounter++;
@@ -136,8 +142,6 @@ function gameOverCountDown()
     gameOverFLag=true;
   },120000);
 }
-startTimer();
-gameOverCountDown();
 //restart the Game
 function restartGame(){
   card1=null;
@@ -156,13 +160,14 @@ function restartGame(){
   document.querySelector('#star2').className="fa fa-star";
   document.querySelector('#star3').className="fa fa-star";
   ratingMsg="3.0"
+  clearInterval(timer);
   clearTimeout(gameoverTimer);
   gameoverTimer=0;
-  if (gameOverFLag) {
+  /*if (gameOverFLag) {
     startTimer();
     gameOverFLag=false;
   }
-  gameOverCountDown();
+  gameOverCountDown();*/
 
 }
 //listener to restart icon
