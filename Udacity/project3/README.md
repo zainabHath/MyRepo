@@ -1,20 +1,18 @@
 # Classic Arcade Game Clone Project
+ 
+this game edited by me to add some actions to the original version which was the starter project from udacity you can find it here: https://github.com/udacity/frontend-nanodegree-arcade-game
 
-## Table of Contents
-
-- [Instructions](#instructions)
-- [Contributing](#contributing)
 
 ## Instructions
 
-Use this [rubric](https://review.udacity.com/#!/rubrics/15/view) for self-checking your submission.
+* most changes accur on `js/app.js`.
+* some changes to html and css file ,but it is not that much.
+* js code has clear comments to the scenario of the game actions.
 
-Make sure the functions you write are **object-oriented** - either class functions (like `Player` and `Enemy`) or class prototype functions such as `Enemy.prototype.checkCollisions`. Also make sure that the keyword `this` is used appropriately within your class and class prototype functions to refer to the object the function is called upon.
 
-Your **README.md** file should be updated with instructions on both how to 1. Run and 2. Play your arcade game.
+## try me
 
-For detailed instructions on how to get started, check out this [guide](https://docs.google.com/document/d/1v01aScPjSWCCWQLIpFqvg3-vXLH2e8_SZQKC8jNO0Dc/pub?embedded=true).
+please try the game first :) https://zainabhath.github.io/MyRepo/Udacity/project3/
 
-## Contributing
-
-This repository is the starter code for _all_ Udacity students. Therefore, we most likely will not accept pull requests.
+## how to play
+simply use the arrows and avoid the bugs to reach the water area
