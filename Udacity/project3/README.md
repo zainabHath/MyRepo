@@ -1,6 +1,6 @@
 # Classic Arcade Game
  
-this game edited by me to add actions to the original version which was the starter project from udacity you can find it here: https://github.com/udacity/frontend-nanodegree-arcade-game 
+this game edited by me to add actions to the original version which was the art assest and game engine from udacity you can find it here: https://github.com/udacity/frontend-nanodegree-arcade-game 
 
 ## try me
 
