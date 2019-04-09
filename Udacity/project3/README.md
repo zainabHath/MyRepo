@@ -1,7 +1,13 @@
-# Classic Arcade Game Clone Project
+# Classic Arcade Game
  
-this game edited by me to add some actions to the original version which was the starter project from udacity you can find it here: https://github.com/udacity/frontend-nanodegree-arcade-game
+this game edited by me to add actions to the original version which was the starter project from udacity you can find it here: https://github.com/udacity/frontend-nanodegree-arcade-game 
 
+## try me
+
+please try the game first :) https://zainabhath.github.io/MyRepo/Udacity/project3/
+
+## how to play
+simply use the arrows and avoid the bugs to reach the water area, enjoy :)
 
 ## Instructions
 
@@ -10,9 +16,4 @@ this game edited by me to add some actions to the original version which was the
 * js code has clear comments to the scenario of the game actions.
 
 
-## try me
 
-please try the game first :) https://zainabhath.github.io/MyRepo/Udacity/project3/
-
-## how to play
-simply use the arrows and avoid the bugs to reach the water area
