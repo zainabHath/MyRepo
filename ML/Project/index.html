@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <link rel="stylesheet" href="css/portfolioStyle.css">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Load jQuery -->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+      <!-- Load Chart.js -->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.bundle.min.js"></script>
+      <script src="https://unpkg.com/chartjs-plugin-colorschemes@0.4.0/dist/chartjs-plugin-colorschemes.min.js"></script>
+
+      <!-- Load D3.js to read csv files -->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/5.9.7/d3.min.js"></script>
+      <script src="https://d3js.org/d3.v4.js"></script>
+      <title>Saudi Stock Market</title>
+  </head>
+  <body>
+        <div id="main">
+          <header id="header">
+              <p>Title</p>
+          </header>
+          <section class="app-container">
+            <div class="app-box">
+             <canvas id="chart-0"></canvas>
+            </div>
+             <div class="app-box2">
+               <div class="app-box-options">
+                 <button id="live" class="button-style-selected" onclick="optionPresed()">Live</button>
+                 <button id="y2019" class="button-style" onclick="optionPresed()">2019</button>
+               </div>
+               <div  class="live-choices">
+                 <p class="app-name">live Buttons</p>
+               </div>
+               <div class="y2019-choices">
+                 <p class="app-name">2019 buttons</p>
+               </div>
+              </div>
+          </section>
+          <!-- <h2 class="section-title">Personal Applications</h2>
+          <section class="app-container">
+            <div class="app-box">
+              <img class="app-img" src="img/arabic-num-png.png" alt="app logo">
+              <p class="app-name">Arabic Numbers for Kids</p>
+              <button class="button-style" onclick="location.href='https://play.google.com/store/apps/details?id=com.tech_mz.numberssum'">open App page</button>
+             </div>
+             <div class="app-box">
+               <img class="app-img" src="img/carb-dite-png.png" alt="carb dite logo">
+               <p class="app-name">Carbohydrates Dite</p>
+               <button class="button-style" onclick="location.href='https://play.google.com/store/apps/details?id=com.techmz.dite'">open App page</button>
+              </div>
+          </section>
+          <h2 class="section-title">Freelancer Application</h2>
+          <section class="app-container">
+            <div class="app-box">
+              <img class="app-img" src="img/thehub-png.png" alt="thehub logo">
+              <p class="app-name">The Hub</p>
+              <button class="button-style" onclick="location.href='https://play.google.com/store/apps/details?id=com.thehubapp'">open App page</button>
+             </div>
+          </section> -->
+        </div>
+        <script src="js/chart.js"></script>
+        <script src="js/chart-utils.js"></script>
+        <script src="js/script.js"></script>
+  </body>
+</html>
