@@ -33,7 +33,7 @@ d3.csv('datat.csv', function(error, data) {
   console.log(data[1]);
 
 });
-//console.log(Data[1]);
+console.log(Data[1]);
 let dat=[{CreatedAt: "Jan", Label: "Neg"}, {CreatedAt: "Jan", Label: "Neg"},
 {CreatedAt: "Jan", Label: "Neg"}, {CreatedAt: "Jan", Label: "Neg"},
 {CreatedAt: "Jan", Label: "pos"}, {CreatedAt: "Jan", Label: "Neg"},
