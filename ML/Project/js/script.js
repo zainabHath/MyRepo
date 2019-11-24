@@ -27,7 +27,7 @@ doThings();*/
 let Data=null;
 d3.csv('datat.csv', function(error, data) {
   if (error) throw error;
-  Data=data;
+  Data=Array.from(data);
   console.log(typeof data);
   console.log(data[0]);
   console.log(data[1]);
